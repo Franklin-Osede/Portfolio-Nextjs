@@ -1,17 +1,20 @@
+import ClientOnly from '@/components/ClientOnly';
 import HeroSection from '../components/HeroSection';
 import AboutMeSection from '../components/AboutMeSection';
 import BlogSection from '../components/BlogSection';
 
 
 
-const Home = () => {
+export default function Home (){
   return (
-    <div>
+    <main>
+      <ClientOnly>
       <HeroSection />
       <AboutMeSection />
       <BlogSection />
-    </div>
+      </ClientOnly>
+    </main>
   );
 };
 
-export default Home;
+

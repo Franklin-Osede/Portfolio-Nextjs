@@ -1,11 +1,18 @@
 'use client'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { Parallax } from 'react-parallax'
 import { Github, Linkedin, ExternalLink, Mail } from 'lucide-react'
 import { TypeAnimation } from 'react-type-animation'
 import dynamic from 'next/dynamic'
 
 const HeroSection = () => {
+  const { scrollYProgress } = useScroll({
+    offset: ["start start", "end start"]
+  })
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, 100])
+
   const socialLinks = [
     {
       icon: Github,
@@ -46,6 +53,7 @@ const HeroSection = () => {
       )}
     >
       <motion.div 
+        style={{ opacity, y }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -85,7 +93,7 @@ const HeroSection = () => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       className="inline-block"
-                      style={{ marginRight: '0.25em' }} // Reducido a un espacio simple
+                      style={{ marginRight: '0.25em' }}
                     >
                       {' '}
                     </motion.span>
@@ -178,7 +186,7 @@ const HeroSection = () => {
             className="pt-8"
           >
             <a
-              href="#projects"
+              href="#about"
               className="inline-flex items-center gap-2 px-8 py-3 bg-button-gradient rounded-full text-white font-semibold hover:shadow-glow transition-all duration-300"
             >
               View My Work
