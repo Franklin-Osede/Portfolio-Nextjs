@@ -3,6 +3,7 @@
 import ClientOnly from '@/components/ClientOnly';
 import HeroSection from '@/components/HeroSection';
 import AboutMeSection from '@/components/AboutMeSection';// Ruta correcta según la configuración
+import KnowledgeBlocks from '@/components/KnowledgeBlocks';
 import BlogSection from '@/components/BlogSection';
 import { useState } from 'react';
 
@@ -16,6 +17,7 @@ export default function Home() {
         <AboutMeSection
           onVisible={() => setBlogVisible(true)}
         />
+        <KnowledgeBlocks/>
         <BlogSection visible={blogVisible} />
       </ClientOnly>
     </main>
