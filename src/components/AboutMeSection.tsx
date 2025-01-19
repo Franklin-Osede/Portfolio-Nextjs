@@ -1,61 +1,41 @@
-'use client'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
-import { Code, Cloud, Lock, Server } from 'lucide-react'
+'use client';
 
-const AboutSection = () => {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  })
+import { motion } from 'framer-motion';
+import { Code, Cloud, Lock, Server } from 'lucide-react';
+import dynamic from 'next/dynamic';
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0.5])
-
+const AboutSection = ({ onVisible }: { onVisible: () => void }) => {
   const features = [
-    {
-      icon: Code,
-      title: "Software Development",
-      description: "Full-stack development with modern technologies"
-    },
-    {
-      icon: Cloud,
-      title: "Cloud Architecture",
-      description: "Designing scalable cloud infrastructure"
-    },
-    {
-      icon: Lock,
-      title: "Blockchain",
-      description: "Smart contract development and Web3 integration"
-    },
-    {
-      icon: Server,
-      title: "DevOps",
-      description: "CI/CD pipelines and automation"
-    }
-  ]
+    { icon: Code, title: 'Software Development', description: 'Full-stack development.' },
+    { icon: Cloud, title: 'Cloud Architecture', description: 'Scalable infrastructure.' },
+    { icon: Lock, title: 'Blockchain', description: 'Web3 integration.' },
+    { icon: Server, title: 'DevOps', description: 'CI/CD pipelines.' },
+  ];
 
   return (
     <section
-      ref={containerRef}
       id="about"
       className="min-h-screen bg-darkBlue relative overflow-hidden"
     >
-      {/* Fondo con efecto parallax */}
+      {/* Fondo con animación */}
       <motion.div
-        style={{ y }}
-        className="absolute inset-0 pointer-events-none"
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-darkBlue to-navyBlue opacity-50" />
-      </motion.div>
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        onViewportEnter={onVisible} // Notifica al padre cuando AboutSection es visible
+        transition={{ duration: 1 }}
+        className="absolute inset-0 bg-gradient-to-b from-darkBlue to-navyBlue opacity-50"
+      />
 
-      {/* Contenido */}
+      {/* Contenido del AboutSection */}
       <motion.div
-        style={{ opacity }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        viewport={{ once: true }}
         className="relative z-10 container mx-auto px-4 py-20"
       >
         <div className="max-w-6xl mx-auto">
+          {/* Encabezado */}
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -72,8 +52,9 @@ const AboutSection = () => {
             </p>
           </motion.div>
 
+          {/* Contenido Principal */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Texto y detalles */}
+            {/* Columna Izquierda */}
             <motion.div
               initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -96,17 +77,17 @@ const AboutSection = () => {
                 </p>
               </div>
 
-              {/* Skills */}
+              {/* Habilidades */}
               <div className="grid grid-cols-2 gap-4 pt-4">
                 {[
-                  "Cloud Architecture",
-                  "DevOps Practices",
-                  "Backend Development",
-                  "Frontend Development",
-                  "Blockchain",
-                  "Security",
-                  "CI/CD",
-                  "Microservices"
+                  'Cloud Architecture',
+                  'DevOps Practices',
+                  'Backend Development',
+                  'Frontend Development',
+                  'Blockchain',
+                  'Security',
+                  'CI/CD',
+                  'Microservices',
                 ].map((skill) => (
                   <motion.div
                     key={skill}
@@ -123,7 +104,7 @@ const AboutSection = () => {
               </div>
             </motion.div>
 
-            {/* Feature cards en lugar de ThreeCard */}
+            {/* Columna Derecha */}
             <motion.div
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -131,17 +112,19 @@ const AboutSection = () => {
               viewport={{ once: true }}
               className="grid grid-cols-1 sm:grid-cols-2 gap-4"
             >
-              {features.map((feature, index) => (
+              {features.map((feature) => (
                 <motion.div
                   key={feature.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: 0.2 }}
                   viewport={{ once: true }}
                   className="p-6 bg-navyBlue/30 backdrop-blur-sm rounded-lg border border-turquoiseBlue/20 hover:border-turquoiseBlue/40 transition-colors"
                 >
                   <feature.icon className="w-10 h-10 text-turquoiseBlue mb-4" />
-                  <h4 className="text-lg font-semibold text-white mb-2">{feature.title}</h4>
+                  <h4 className="text-lg font-semibold text-white mb-2">
+                    {feature.title}
+                  </h4>
                   <p className="text-gray-300 text-sm">{feature.description}</p>
                 </motion.div>
               ))}
@@ -150,7 +133,7 @@ const AboutSection = () => {
         </div>
       </motion.div>
     </section>
-  )
-}
+  );
+};
 
-export default AboutSection
+export default dynamic(() => Promise.resolve(AboutSection), { ssr: false });
