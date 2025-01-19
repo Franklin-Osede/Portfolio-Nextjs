@@ -17,16 +17,16 @@ const AboutSection = ({ onVisible }: { onVisible: () => void }) => {
       id="about"
       className="min-h-screen bg-darkBlue relative overflow-hidden"
     >
-      {/* Fondo con animación */}
+      {/* Fondo animado */}
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
-        onViewportEnter={onVisible} // Notifica al padre cuando AboutSection es visible
+        onViewportEnter={onVisible} // Notifica al componente padre cuando es visible
         transition={{ duration: 1 }}
         className="absolute inset-0 bg-gradient-to-b from-darkBlue to-navyBlue opacity-50"
       />
 
-      {/* Contenido del AboutSection */}
+      {/* Contenido principal */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -52,9 +52,8 @@ const AboutSection = ({ onVisible }: { onVisible: () => void }) => {
             </p>
           </motion.div>
 
-          {/* Contenido Principal */}
+          {/* Contenido principal con características */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Columna Izquierda */}
             <motion.div
               initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -76,35 +75,9 @@ const AboutSection = ({ onVisible }: { onVisible: () => void }) => {
                   applications, always eager to learn and adapt to new technologies.
                 </p>
               </div>
-
-              {/* Habilidades */}
-              <div className="grid grid-cols-2 gap-4 pt-4">
-                {[
-                  'Cloud Architecture',
-                  'DevOps Practices',
-                  'Backend Development',
-                  'Frontend Development',
-                  'Blockchain',
-                  'Security',
-                  'CI/CD',
-                  'Microservices',
-                ].map((skill) => (
-                  <motion.div
-                    key={skill}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                    viewport={{ once: true }}
-                    className="flex items-center space-x-2"
-                  >
-                    <div className="w-2 h-2 bg-turquoiseBlue rounded-full" />
-                    <span className="text-gray-300">{skill}</span>
-                  </motion.div>
-                ))}
-              </div>
             </motion.div>
 
-            {/* Columna Derecha */}
+            {/* Bloques de características */}
             <motion.div
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -115,21 +88,37 @@ const AboutSection = ({ onVisible }: { onVisible: () => void }) => {
               {features.map((feature) => (
                 <motion.div
                   key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="p-6 bg-navyBlue/30 backdrop-blur-sm rounded-lg border border-turquoiseBlue/20 hover:border-turquoiseBlue/40 transition-colors"
+                  className="p-6 bg-navyBlue rounded-lg border border-turquoiseBlue/20"
                 >
-                  <feature.icon className="w-10 h-10 text-turquoiseBlue mb-4" />
-                  <h4 className="text-lg font-semibold text-white mb-2">
-                    {feature.title}
-                  </h4>
-                  <p className="text-gray-300 text-sm">{feature.description}</p>
+                  <feature.icon className="w-8 h-8 mb-4 text-turquoiseBlue" />
+                  <h4 className="text-lg font-semibold text-white">{feature.title}</h4>
+                  <p className="text-gray-300">{feature.description}</p>
                 </motion.div>
               ))}
             </motion.div>
           </div>
+
+          {/* Nuevo título "Get to know" */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mt-12 text-center"
+          >
+            <h3 className="text-3xl font-bold text-turquoiseBlue mb-6">Get to know me</h3>
+
+            {/* Video embebido */}
+            <div className="relative w-full max-w-4xl mx-auto aspect-w-16 aspect-h-9">
+              <iframe
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ" // Cambia la URL por el video deseado
+                title="YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full rounded-lg border border-turquoiseBlue/20"
+              />
+            </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>
