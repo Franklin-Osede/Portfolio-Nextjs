@@ -28,11 +28,12 @@ const HeroSection = () => {
     >
       <motion.div
         style={{ opacity, y }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 1, y: 0 }} // Estado inicial para garantizar visibilidad
+        animate={{ opacity: 1, y: 0 }} // Mantener visible sin scroll
         transition={{ duration: 1 }}
         className="h-screen flex flex-col items-center justify-center text-center px-4"
       >
+        {/* Título principal */}
         <motion.h1
           className="text-4xl md:text-6xl lg:text-7xl font-bold text-white"
           initial={{ y: 50, opacity: 0 }}
@@ -42,6 +43,7 @@ const HeroSection = () => {
           I&apos;m Franklin
         </motion.h1>
 
+        {/* Animación de typing */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -64,6 +66,7 @@ const HeroSection = () => {
           />
         </motion.div>
 
+        {/* Badges */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -83,6 +86,7 @@ const HeroSection = () => {
           ))}
         </motion.div>
 
+        {/* Links sociales */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -103,11 +107,12 @@ const HeroSection = () => {
           ))}
         </motion.div>
 
+        {/* Botón CTA */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="pt-8"
+          className="pt-6"
         >
           <a
             href="#about"
