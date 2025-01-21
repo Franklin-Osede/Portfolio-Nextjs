@@ -1,23 +1,17 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Parallax } from 'react-parallax';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { TypeAnimation } from 'react-type-animation';
 import dynamic from 'next/dynamic';
+import { useEffect } from 'react';
 
-const HeroSection = () => {
-  const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
-
-  const socialLinks = [
-    { icon: Github, href: 'https://github.com/yourusername', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:your@email.com', label: 'Email' },
-  ];
-
-  const technologies = ['DevOps', 'AWS', 'Blockchain', 'Security'];
+const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
+  // Notificar al padre que HeroSection es visible
+  useEffect(() => {
+    onVisible();
+  }, [onVisible]);
 
   return (
     <Parallax
@@ -27,11 +21,10 @@ const HeroSection = () => {
       bgImageStyle={{ objectFit: 'cover', opacity: 0.7 }}
     >
       <motion.div
-        style={{ opacity, y }}
-        initial={{ opacity: 1, y: 0 }} // Estado inicial para garantizar visibilidad
-        animate={{ opacity: 1, y: 0 }} // Mantener visible sin scroll
+        initial={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="h-screen flex flex-col items-center justify-center text-center px-4"
+        className="flex flex-col items-center justify-center text-center px-4 pb-20 pt-32"
       >
         {/* Título principal */}
         <motion.h1
@@ -73,7 +66,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="flex justify-center gap-2 flex-wrap mt-6"
         >
-          {technologies.map((tech) => (
+          {['DevOps', 'AWS', 'Blockchain', 'Security'].map((tech) => (
             <motion.span
               key={tech}
               initial={{ opacity: 0, y: 20 }}
@@ -93,26 +86,29 @@ const HeroSection = () => {
           transition={{ delay: 2 }}
           className="flex justify-center space-x-6 pt-6"
         >
-          {socialLinks.map((link) => (
+          {[
+            { icon: Github, href: 'https://github.com/yourusername' },
+            { icon: Linkedin, href: 'https://linkedin.com/in/yourusername' },
+            { icon: Mail, href: 'mailto:your@email.com' },
+          ].map((link, idx) => (
             <a
-              key={link.label}
+              key={idx}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-turquoiseBlue transition-colors duration-300"
-              aria-label={link.label}
             >
               <link.icon className="w-6 h-6" />
             </a>
           ))}
         </motion.div>
 
-        {/* Botón CTA */}
+        {/* Botón y fecha */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="pt-4 mb-0"
+          className="pt-10"
         >
           <a
             href="#about"
@@ -120,6 +116,14 @@ const HeroSection = () => {
           >
             View My Work
           </a>
+          <div className="mt-6 text-sm text-gray-400">
+            {new Date().toLocaleDateString('en-US', {
+              weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </div>
         </motion.div>
       </motion.div>
     </Parallax>

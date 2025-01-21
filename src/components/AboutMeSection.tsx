@@ -13,20 +13,14 @@ const AboutSection = ({ onVisible }: { onVisible: () => void }) => {
   ];
 
   return (
-    <section
-      id="about"
-      className="min-h-screen bg-darkBlue relative overflow-hidden"
-    >
-      {/* Fondo animado */}
+    <section id="about" className="min-h-screen bg-darkBlue relative overflow-hidden">
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
-        onViewportEnter={onVisible} // Notifica al componente padre cuando es visible
+        onViewportEnter={onVisible}
         transition={{ duration: 1 }}
         className="absolute inset-0 bg-gradient-to-b from-darkBlue to-navyBlue opacity-50"
       />
-
-      {/* Contenido principal */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -35,7 +29,6 @@ const AboutSection = ({ onVisible }: { onVisible: () => void }) => {
         className="relative z-10 container mx-auto px-4 py-20"
       >
         <div className="max-w-6xl mx-auto">
-          {/* Nuevo título "Get to know" */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -43,12 +36,10 @@ const AboutSection = ({ onVisible }: { onVisible: () => void }) => {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <h3 className="text-3xl font-bold text-turquoiseBlue mb-6">Get to know me</h3>
-
-            {/* Video embebido */}
+            <h3 className="text-3xl font-bold text-turquoiseBlue mb-6">Get To Know Me</h3>
             <div className="relative w-full max-w-4xl mx-auto aspect-w-16 aspect-h-9">
               <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ" // Cambia la URL por el video deseado
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
                 title="YouTube video"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -56,8 +47,6 @@ const AboutSection = ({ onVisible }: { onVisible: () => void }) => {
               />
             </div>
           </motion.div>
-
-          {/* Encabezado "About Me" */}
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -73,8 +62,6 @@ const AboutSection = ({ onVisible }: { onVisible: () => void }) => {
               With expertise in modern technologies and a focus on quality.
             </p>
           </motion.div>
-
-          {/* Contenido principal con características */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <motion.div
               initial={{ x: -50, opacity: 0 }}
@@ -98,8 +85,6 @@ const AboutSection = ({ onVisible }: { onVisible: () => void }) => {
                 </p>
               </div>
             </motion.div>
-
-            {/* Bloques de características */}
             <motion.div
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}

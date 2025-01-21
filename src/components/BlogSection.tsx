@@ -3,36 +3,19 @@
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 
-const BlogSection = ({ visible }: { visible: boolean }) => {
-  const posts = [
-    { title: 'Post 1', description: 'Description of Post 1' },
-    { title: 'Post 2', description: 'Description of Post 2' },
-  ];
-
-  if (!visible) return null; // Evitar que BlogSection se renderice si no es visible.
-
+const BlogSection = () => {
   return (
-    <section id="blog" className="py-20 bg-darkBlue text-center text-white">
+    <section
+      id="blog"
+      className="min-h-screen bg-darkBlue relative overflow-hidden py-20 px-4"
+    >
       <motion.div
         initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
+        className="container mx-auto max-w-5xl"
       >
-        <h2 className="text-4xl font-bold mb-10">Blog</h2>
-        <div className="grid gap-6 max-w-4xl mx-auto">
-          {posts.map((post, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              className="p-6 bg-navyBlue rounded-lg shadow-md"
-            >
-              <h3 className="text-2xl font-bold">{post.title}</h3>
-              <p className="text-gray-400">{post.description}</p>
-            </motion.div>
-          ))}
-        </div>
+        <h2 className="text-4xl font-bold text-white text-center">Blog</h2>
       </motion.div>
     </section>
   );
