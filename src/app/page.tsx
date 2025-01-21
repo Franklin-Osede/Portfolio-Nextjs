@@ -1,24 +1,36 @@
-'use client'
+'use client';
 
+import { useState } from 'react';
 import ClientOnly from '@/components/ClientOnly';
 import HeroSection from '@/components/HeroSection';
-import AboutMeSection from '@/components/AboutMeSection';// Ruta correcta según la configuración
-import KnowledgeBlocks from '@/components/KnowledgeBlocks';
-import BlogSection from '@/components/BlogSection';
-import { useState } from 'react';
+import AboutMeSection from '@/components/AboutMeSection';
+import KnowledgeBlocks from '@/components/KnowledgeBlocks'; // Ensure the path is correct
+import BlogSection from '@/components/BlogSection'; // Ensure the path is correct
 
 export default function Home() {
+  // State variables to manage visibility
+  const [aboutVisible, setAboutVisible] = useState(false);
   const [blogVisible, setBlogVisible] = useState(false);
 
   return (
     <main>
       <ClientOnly>
+        {/* Hero Section */}
         <HeroSection />
+
+        {/* About Section */}
         <AboutMeSection
-          onVisible={() => setBlogVisible(true)}
+          onVisible={() => {
+            setAboutVisible(true);
+            setTimeout(() => setBlogVisible(true), 300); // Ensure proper sequence
+          }}
         />
-        <KnowledgeBlocks/>
-        <BlogSection visible={blogVisible} />
+
+        {/* Knowledge Blocks */}
+        {aboutVisible && <KnowledgeBlocks visible={true} />}
+
+        {/* Blog Section */}
+        {blogVisible && <BlogSection visible={blogVisible} />}
       </ClientOnly>
     </main>
   );

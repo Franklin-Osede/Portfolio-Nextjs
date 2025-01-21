@@ -35,7 +35,29 @@ const AboutSection = ({ onVisible }: { onVisible: () => void }) => {
         className="relative z-10 container mx-auto px-4 py-20"
       >
         <div className="max-w-6xl mx-auto">
-          {/* Encabezado */}
+          {/* Nuevo título "Get to know" */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <h3 className="text-3xl font-bold text-turquoiseBlue mb-6">Get to know me</h3>
+
+            {/* Video embebido */}
+            <div className="relative w-full max-w-4xl mx-auto aspect-w-16 aspect-h-9">
+              <iframe
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ" // Cambia la URL por el video deseado
+                title="YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full rounded-lg border border-turquoiseBlue/20"
+              />
+            </div>
+          </motion.div>
+
+          {/* Encabezado "About Me" */}
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -97,28 +119,6 @@ const AboutSection = ({ onVisible }: { onVisible: () => void }) => {
               ))}
             </motion.div>
           </div>
-
-          {/* Nuevo título "Get to know" */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mt-12 text-center"
-          >
-            <h3 className="text-3xl font-bold text-turquoiseBlue mb-6">Get to know me</h3>
-
-            {/* Video embebido */}
-            <div className="relative w-full max-w-4xl mx-auto aspect-w-16 aspect-h-9">
-              <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ" // Cambia la URL por el video deseado
-                title="YouTube video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full rounded-lg border border-turquoiseBlue/20"
-              />
-            </div>
-          </motion.div>
         </div>
       </motion.div>
     </section>

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const KnowledgeBlocks = () => {
+const KnowledgeBlocks = ({ visible }: { visible: boolean }) => {
   const data = [
     {
       title: 'JavaScript',
@@ -29,30 +29,43 @@ const KnowledgeBlocks = () => {
   ];
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
 
   const toggleBlock = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
+    setHoveredVideo(null); // Reset video on topic toggle
   };
+
+  if (!visible) {
+    return null;
+  }
 
   return (
     <section
       id="knowledge"
       className="bg-navyBlue py-16 px-4 text-white text-center"
     >
-      {/* Título principal */}
-      <h2 className="text-4xl font-bold mb-6">
+      {/* Main Title */}
+      <motion.h2
+        className="text-4xl font-bold mb-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         &quot;Teaching is the best way to learn&quot;
-      </h2>
+      </motion.h2>
       <p className="text-lg text-gray-400 mb-12">
         Explore and deepen your knowledge through these resources.
       </p>
 
+      {/* Knowledge Blocks */}
       <div className="max-w-4xl mx-auto space-y-6">
         {data.map((block, index) => (
           <div
             key={block.title}
             className="bg-darkBlue rounded-lg shadow-md p-4"
           >
+            {/* Topic Title */}
             <button
               onClick={() => toggleBlock(index)}
               className="w-full text-left text-2xl font-semibold text-turquoiseBlue flex justify-between items-center"
@@ -63,6 +76,7 @@ const KnowledgeBlocks = () => {
               </span>
             </button>
 
+            {/* Links */}
             {openIndex === index && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
@@ -74,30 +88,30 @@ const KnowledgeBlocks = () => {
                   <div
                     key={linkIndex}
                     className="relative group cursor-pointer"
+                    onMouseEnter={() => setHoveredVideo(link.url)}
+                    onMouseLeave={() => setHoveredVideo(null)}
                   >
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-left text-lg text-gray-300 hover:text-turquoiseBlue"
-                    >
+                    <span className="block text-left text-lg text-gray-300 hover:text-turquoiseBlue">
                       {link.label}
-                    </a>
+                    </span>
 
-                    <motion.div
-                      initial={{ scale: 0, opacity: 0 }}
-                      whileHover={{ scale: 1, opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                      className="absolute left-0 top-0 w-64 h-36 bg-black border-2 border-turquoiseBlue rounded-md overflow-hidden shadow-lg hidden group-hover:block z-10"
-                    >
-                      <iframe
-                        src={link.url}
-                        title={link.label}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="w-full h-full"
-                      />
-                    </motion.div>
+                    {/* Embedded Video */}
+                    {hoveredVideo === link.url && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3 }}
+                        className="absolute top-12 left-0 w-full max-w-lg mx-auto bg-black border border-turquoiseBlue rounded-md shadow-lg overflow-hidden z-10"
+                      >
+                        <iframe
+                          src={link.url}
+                          title={link.label}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="w-full h-64 rounded-md"
+                        />
+                      </motion.div>
+                    )}
                   </div>
                 ))}
               </motion.div>

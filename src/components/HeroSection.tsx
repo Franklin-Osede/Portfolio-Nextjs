@@ -112,7 +112,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="pt-6"
+          className="pt-4 mb-0"
         >
           <a
             href="#about"
