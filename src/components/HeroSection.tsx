@@ -103,12 +103,12 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
           ))}
         </motion.div>
 
-        {/* Botón y fecha */}
+        {/* Botón y flecha */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="pt-10"
+          className="pt-10 flex flex-col items-center"
         >
           <a
             href="#about"
@@ -116,14 +116,33 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
           >
             View My Work
           </a>
-          <div className="mt-6 text-sm text-gray-400">
-            {new Date().toLocaleDateString('en-US', {
-              weekday: 'long',
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
-          </div>
+          <motion.div
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: [0, -10, 0], opacity: 1 }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              repeatType: 'loop',
+            }}
+            className="mt-8 cursor-pointer"
+          >
+            <a href="#about">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="white"
+                className="w-8 h-8 hover:opacity-80 transition-opacity"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19.5 12.75L12 20.25L4.5 12.75"
+                />
+              </svg>
+            </a>
+          </motion.div>
         </motion.div>
       </motion.div>
     </Parallax>
