@@ -1,7 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 
 const KnowledgeBlocks = () => {
@@ -17,22 +17,14 @@ const KnowledgeBlocks = () => {
   ];
 
   return (
-    <section
-      id="knowledge"
-      className="min-h-screen bg-navyBlue relative overflow-hidden py-20 px-4"
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="container mx-auto max-w-5xl"
-      >
+    <section id="knowledge" className="min-h-screen bg-navyBlue relative overflow-hidden py-20 px-4">
+      <div className="container mx-auto max-w-5xl">
         <h2 className="text-4xl font-bold text-white text-center mb-10">Knowledge Blocks</h2>
         <div className="space-y-6">
           {blocks.map((block, index) => (
             <div key={block.title} className="bg-darkBlue p-6 rounded-lg">
               <button
-                className="text-white text-2xl"
+                className="w-full text-left text-white text-2xl hover:text-turquoiseBlue transition-colors"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 {block.title}
@@ -41,8 +33,9 @@ const KnowledgeBlocks = () => {
                 <motion.div
                   initial={{ height: 0 }}
                   animate={{ height: 'auto' }}
-                  transition={{ duration: 0.5 }}
-                  className="mt-4"
+                  exit={{ height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="mt-4 overflow-hidden"
                 >
                   {block.resources.map((resource, idx) => (
                     <iframe
@@ -59,7 +52,7 @@ const KnowledgeBlocks = () => {
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
