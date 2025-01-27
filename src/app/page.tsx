@@ -15,12 +15,19 @@ export default function Home() {
   const [blogVisible, setBlogVisible] = useState(false);
 
   const handleHeroVisible = () => {
+    // Mostrar Know Me Section después de 1 segundo
     setTimeout(() => {
       setKnowMeVisible(true);
+
+      // Mostrar Knowledge Blocks después de otros 800 ms
       setTimeout(() => {
         setKnowledgeVisible(true);
+
+        // Mostrar About Me Section después de otros 800 ms
         setTimeout(() => {
           setAboutVisible(true);
+
+          // Mostrar Blog Section después de otros 600 ms
           setTimeout(() => {
             setBlogVisible(true);
           }, 600);
