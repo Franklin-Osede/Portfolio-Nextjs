@@ -3,23 +3,28 @@
 import { useState } from 'react';
 import ClientOnly from '@/components/ClientOnly';
 import HeroSection from '@/components/HeroSection';
-import AboutMeSection from '@/components/AboutMeSection';
+import KnowMeSection from '@/components/KnowMeSection';
 import KnowledgeBlocks from '@/components/KnowledgeBlocks';
+import AboutMeSection from '@/components/AboutMeSection';
 import BlogSection from '@/components/BlogSection';
 
 export default function Home() {
-  const [aboutVisible, setAboutVisible] = useState(false);
+  const [knowMeVisible, setKnowMeVisible] = useState(false);
   const [knowledgeVisible, setKnowledgeVisible] = useState(false);
+  const [aboutVisible, setAboutVisible] = useState(false);
   const [blogVisible, setBlogVisible] = useState(false);
 
   const handleHeroVisible = () => {
     setTimeout(() => {
-      setAboutVisible(true);
+      setKnowMeVisible(true);
       setTimeout(() => {
         setKnowledgeVisible(true);
         setTimeout(() => {
-          setBlogVisible(true);
-        }, 600);
+          setAboutVisible(true);
+          setTimeout(() => {
+            setBlogVisible(true);
+          }, 600);
+        }, 800);
       }, 800);
     }, 1000);
   };
@@ -30,11 +35,14 @@ export default function Home() {
         {/* Hero Section */}
         <HeroSection onVisible={handleHeroVisible} />
 
-        {/* About Me Section */}
-        {aboutVisible && <AboutMeSection onVisible={() => {}} />}
+        {/* Know Me Section */}
+        {knowMeVisible && <KnowMeSection />}
 
         {/* Knowledge Blocks */}
         {knowledgeVisible && <KnowledgeBlocks />}
+
+        {/* About Me Section */}
+        {aboutVisible && <AboutMeSection />}
 
         {/* Blog Section */}
         {blogVisible && <BlogSection />}
