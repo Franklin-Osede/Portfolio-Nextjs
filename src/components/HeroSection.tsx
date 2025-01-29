@@ -13,6 +13,14 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
     onVisible();
   }, [onVisible]);
 
+   // Función para hacer scroll suave
+   const scrollToKnowMe = () => {
+    const element = document.getElementById('know-me');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <Parallax
       bgImage="/images/bg.jpg"
@@ -110,12 +118,12 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
           transition={{ delay: 1.5 }}
           className="pt-6 flex flex-col items-center"
         >
-          <a
-            href="#about"
+          <button
+            onClick={scrollToKnowMe}
             className="inline-flex items-center gap-2 px-8 py-3 bg-button-gradient rounded-full text-white font-semibold hover:shadow-glow transition-all duration-300"
           >
             View My Work
-          </a>
+          </button>
           <motion.div
             initial={{ y: -10, opacity: 0 }}
             animate={{ y: [0, -10, 0], opacity: 1 }}
@@ -126,7 +134,7 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
             }}
             className="mt-8 cursor-pointer"
           >
-            <a href="#about">
+            <button onClick={scrollToKnowMe}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -141,7 +149,7 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
                   d="M19.5 12.75L12 20.25L4.5 12.75"
                 />
               </svg>
-            </a>
+            </button>
           </motion.div>
         </motion.div>
       </motion.div>
