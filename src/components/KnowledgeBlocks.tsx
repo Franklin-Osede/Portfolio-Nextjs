@@ -1,8 +1,5 @@
-'use client';
-
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import dynamic from 'next/dynamic';
 
 const KnowledgeBlocks = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -21,7 +18,7 @@ const KnowledgeBlocks = () => {
       id="knowledge"
       className="min-h-screen relative overflow-hidden py-20 px-4"
       style={{
-        background: 'linear-gradient(270deg, #0a1a3f, #0f2a5a, #0a1a3f)',
+        background: 'linear-gradient(270deg, rgba(10, 26, 47, 0.9), rgba(15, 42, 74, 0.9), rgba(10, 26, 47, 0.9))',
         backgroundSize: '600% 600%',
         animation: 'gradientAnimation 10s ease infinite',
       }}
@@ -34,20 +31,22 @@ const KnowledgeBlocks = () => {
         }
       `}</style>
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-4xl font-bold text-white text-center mb-10">
-          Passionate About Clean Web 3, Tech & Innovation
+        <h2 className="text-3xl font-bold text-center mb-10">
+          <span className="bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text">
+            Passionate About Clean Web 3, Tech & Innovation
+          </span>
         </h2>
         <div className="space-y-6">
           {blocks.map((block, index) => (
             <div
               key={block.title}
-              className="bg-darkBlue p-6 rounded-lg"
+              className="bg-darkBlue bg-opacity-30 backdrop-blur-sm p-6 rounded-lg border border-turquoiseBlue/20"
               style={{
                 boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)',
               }}
             >
               <button
-                className="w-full text-left text-white text-2xl hover:text-turquoiseBlue transition-colors"
+                className="w-full text-left text-white text-xl hover:text-turquoiseBlue transition-colors"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 {block.title}
@@ -65,7 +64,7 @@ const KnowledgeBlocks = () => {
                       key={idx}
                       src={resource.url}
                       title={resource.label}
-                      className="w-full h-64 rounded-lg"
+                      className="w-full h-64 rounded-lg border border-turquoiseBlue/20"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     />
@@ -80,4 +79,4 @@ const KnowledgeBlocks = () => {
   );
 };
 
-export default dynamic(() => Promise.resolve(KnowledgeBlocks), { ssr: false });
+export default KnowledgeBlocks;

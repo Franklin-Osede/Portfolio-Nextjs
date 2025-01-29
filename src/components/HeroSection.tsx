@@ -1,19 +1,14 @@
-'use client';
-
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Parallax } from 'react-parallax';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { TypeAnimation } from 'react-type-animation';
-import dynamic from 'next/dynamic';
-import { useEffect } from 'react';
 
 const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
-  // Notificar al padre que HeroSection es visible
   useEffect(() => {
     onVisible();
   }, [onVisible]);
 
-  // Función para hacer scroll suave
   const scrollToKnowMe = () => {
     const element = document.getElementById('know-me');
     if (element) {
@@ -28,7 +23,6 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
       blur={0}
       bgImageStyle={{ objectFit: 'cover', opacity: 0.7 }}
     >
-      {/* Capa de gradiente sobre la imagen de fondo */}
       <div
         style={{
           position: 'absolute',
@@ -46,22 +40,22 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
         transition={{ duration: 1 }}
         className="flex flex-col items-center justify-center text-center px-4 pb-10 pt-32 relative z-10"
       >
-        {/* Título principal */}
         <motion.h1
-          className="text-4xl md:text-6xl lg:text-7xl font-bold text-white"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          I&apos;m Franklin
+          <span className="bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text">
+            I&apos;m Franklin
+          </span>
         </motion.h1>
 
-        {/* Animación de typing */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="text-xl md:text-2xl text-gray-300 font-bold mt-4"
+          className="text-xl md:text-2xl font-bold mt-4"
         >
           <TypeAnimation
             sequence={[
@@ -75,31 +69,33 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
             wrapper="span"
             speed={50}
             repeat={Infinity}
-            className="block font-bold"
+            className="block font-bold bg-gradient-to-r from-white via-white to-cyan-100 text-transparent bg-clip-text"
           />
         </motion.div>
 
-        {/* Badges */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
           className="flex justify-center gap-2 flex-wrap mt-6"
         >
-          {['DevOps', 'AWS', 'Blockchain', 'Security'].map((tech) => (
-            <motion.span
-              key={tech}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2 }}
-              className="px-4 py-1 bg-navyBlue rounded-full text-sm font-medium text-turquoiseBlue border border-turquoiseBlue/30"
-            >
-              {tech}
-            </motion.span>
-          ))}
+          {['DevOps', 'AWS', 'Blockchain', 'Security'].map((tech) => {
+            return (
+              <motion.span
+                key={tech}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2 }}
+                className="px-4 py-1 bg-navyBlue/30 backdrop-blur-sm rounded-full text-sm font-medium border border-turquoiseBlue/30"
+              >
+                <span className="bg-gradient-to-r from-white via-white to-cyan-100 text-transparent bg-clip-text">
+                  {tech}
+                </span>
+              </motion.span>
+            );
+          })}
         </motion.div>
 
-        {/* Links sociales */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -123,7 +119,6 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
           ))}
         </motion.div>
 
-        {/* Botón y flecha */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -169,4 +164,4 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
   );
 };
 
-export default dynamic(() => Promise.resolve(HeroSection), { ssr: false });
+export default HeroSection;
