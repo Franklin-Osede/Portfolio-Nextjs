@@ -6,7 +6,7 @@ const KnowMeSection = () => {
   return (
     <section id="know-me" className="min-h-screen bg-darkBlue relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-darkBlue to-navyBlue opacity-50" />
-      <div className="relative z-10 container mx-auto px-4 py-20">
+      <div className="relative z-10 container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16 text-center">
             <h3 className="text-3xl font-bold text-turquoiseBlue mb-6">Get To Know Me</h3>

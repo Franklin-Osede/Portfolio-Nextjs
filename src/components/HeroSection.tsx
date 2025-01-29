@@ -24,7 +24,7 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
         initial={{ opacity: 1, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="flex flex-col items-center justify-center text-center px-4 pb-20 pt-32"
+        className="flex flex-col items-center justify-center text-center px-4 pb-10 pt-32"
       >
         {/* Título principal */}
         <motion.h1
@@ -108,7 +108,7 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="pt-10 flex flex-col items-center"
+          className="pt-6 flex flex-col items-center"
         >
           <a
             href="#about"
