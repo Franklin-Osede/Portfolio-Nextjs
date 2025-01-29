@@ -23,7 +23,7 @@ const KnowMeSection = () => {
           background: 'linear-gradient(270deg, rgba(10, 26, 47, 0.9), rgba(15, 42, 74, 0.9), rgba(10, 26, 47, 0.9))',
         }}
       />
-      <div className="relative z-10 container mx-auto px-4 py-8">
+      <div className="relative z-10 container mx-auto px-4 py-2">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16 text-center">
             <h3 className="text-3xl font-bold text-white mb-10">
@@ -43,7 +43,7 @@ const KnowMeSection = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mt-16 flex flex-col items-center"
+              className="mt-8 flex flex-col items-center"
             >
               <motion.button
                 onClick={scrollToNext}

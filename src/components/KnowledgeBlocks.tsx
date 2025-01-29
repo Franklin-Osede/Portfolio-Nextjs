@@ -16,9 +16,9 @@ const KnowledgeBlocks = () => {
   return (
     <section
       id="knowledge"
-      className="min-h-screen relative overflow-hidden py-12 px-4"
+      className="min-h-screen relative overflow-hidden py-10 px-4"
       style={{
-        background: 'linear-gradient(270deg, rgba(10, 26, 47, 0.98), rgba(15, 42, 74, 0.98), rgba(10, 26, 47, 0.98))',
+        background: 'linear-gradient(270deg, rgba(10, 26, 47, 0.98), rgba(15, 42, 74, 0.92), rgba(10, 26, 47, 0.98))',
         backgroundSize: '600% 600%',
         animation: 'gradientAnimation 10s ease infinite',
       }}
@@ -30,7 +30,7 @@ const KnowledgeBlocks = () => {
           100% { background-position: 0% 50%; }
         }
       `}</style>
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto max-w-5xl pt-4">
         <h2 className="text-3xl font-bold text-center mb-10">
           <span className="bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text">
             Passionate About Clean Web 3, Tech & Innovation
