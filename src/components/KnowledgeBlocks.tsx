@@ -16,9 +16,9 @@ const KnowledgeBlocks = () => {
   return (
     <section
       id="knowledge"
-      className="min-h-screen relative overflow-hidden py-10 px-4"
+      className="min-h-screen relative overflow-hidden py-12 px-4"
       style={{
-        background: 'linear-gradient(270deg, rgba(10, 26, 47, 0.95), rgba(15, 42, 74, 0.95), rgba(10, 26, 47, 0.95))',
+        background: 'linear-gradient(270deg, rgba(10, 26, 47, 0.98), rgba(15, 42, 74, 0.98), rgba(10, 26, 47, 0.98))',
         backgroundSize: '600% 600%',
         animation: 'gradientAnimation 10s ease infinite',
       }}
