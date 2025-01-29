@@ -17,12 +17,35 @@ const KnowledgeBlocks = () => {
   ];
 
   return (
-    <section id="knowledge" className="min-h-screen bg-navyBlue relative overflow-hidden py-20 px-4">
+    <section
+      id="knowledge"
+      className="min-h-screen relative overflow-hidden py-20 px-4"
+      style={{
+        background: 'linear-gradient(270deg, #0a1a3f, #0f2a5a, #0a1a3f)',
+        backgroundSize: '600% 600%',
+        animation: 'gradientAnimation 10s ease infinite',
+      }}
+    >
+      <style jsx>{`
+        @keyframes gradientAnimation {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `}</style>
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-4xl font-bold text-white text-center mb-10">Knowledge Blocks</h2>
+        <h2 className="text-4xl font-bold text-white text-center mb-10">
+          Passionate About Clean Web 3, Tech & Innovation
+        </h2>
         <div className="space-y-6">
           {blocks.map((block, index) => (
-            <div key={block.title} className="bg-darkBlue p-6 rounded-lg">
+            <div
+              key={block.title}
+              className="bg-darkBlue p-6 rounded-lg"
+              style={{
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)',
+              }}
+            >
               <button
                 className="w-full text-left text-white text-2xl hover:text-turquoiseBlue transition-colors"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}

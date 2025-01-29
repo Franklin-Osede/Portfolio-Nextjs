@@ -13,8 +13,8 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
     onVisible();
   }, [onVisible]);
 
-   // Función para hacer scroll suave
-   const scrollToKnowMe = () => {
+  // Función para hacer scroll suave
+  const scrollToKnowMe = () => {
     const element = document.getElementById('know-me');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -28,11 +28,23 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
       blur={0}
       bgImageStyle={{ objectFit: 'cover', opacity: 0.7 }}
     >
+      {/* Capa de gradiente sobre la imagen de fondo */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'linear-gradient(270deg, rgba(10, 26, 47, 0.9), rgba(15, 42, 74, 0.9), rgba(10, 26, 47, 0.9))',
+          zIndex: 1,
+        }}
+      />
       <motion.div
         initial={{ opacity: 1, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="flex flex-col items-center justify-center text-center px-4 pb-10 pt-32"
+        className="flex flex-col items-center justify-center text-center px-4 pb-10 pt-32 relative z-10"
       >
         {/* Título principal */}
         <motion.h1
