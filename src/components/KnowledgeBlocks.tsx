@@ -24,19 +24,19 @@ const KnowledgeBlocks = () => {
       ],
     },
     {
-      title: 'DevOps',
+      title: 'Test Driven Development',
       topics: [
         { 
-          label: 'CI/CD Pipelines', 
-          url: 'https://www.youtube.com/embed/example4?autoplay=0'
+          label: 'Basic Katas', 
+          url: 'https://www.youtube.com/embed/example1?autoplay=0'
         },
         { 
-          label: 'Docker & Kubernetes', 
-          url: 'https://www.youtube.com/embed/example5?autoplay=0'
+          label: 'Intermediate Katas', 
+          url: 'https://www.youtube.com/embed/example2?autoplay=0'
         },
         { 
-          label: 'Infrastructure as Code', 
-          url: 'https://www.youtube.com/embed/example6?autoplay=0'
+          label: 'Advanced Katas', 
+          url: 'https://www.youtube.com/embed/example3?autoplay=0'
         },
       ],
     },
@@ -92,6 +92,40 @@ const KnowledgeBlocks = () => {
       ],
     },
     {
+      title: 'Back-End Development',
+      topics: [
+        { 
+          label: 'Node.js Basics', 
+          url: 'https://www.youtube.com/embed/example19?autoplay=0'
+        },
+        { 
+          label: 'REST APIs', 
+          url: 'https://www.youtube.com/embed/example20?autoplay=0'
+        },
+        { 
+          label: 'Database Integration', 
+          url: 'https://www.youtube.com/embed/example21?autoplay=0'
+        },
+      ],
+    },
+    {
+      title: 'DevOps',
+      topics: [
+        { 
+          label: 'CI/CD Pipelines', 
+          url: 'https://www.youtube.com/embed/example4?autoplay=0'
+        },
+        { 
+          label: 'Docker & Kubernetes', 
+          url: 'https://www.youtube.com/embed/example5?autoplay=0'
+        },
+        { 
+          label: 'Infrastructure as Code', 
+          url: 'https://www.youtube.com/embed/example6?autoplay=0'
+        },
+      ],
+    },
+    {
       title: 'AWS',
       topics: [
         { 
@@ -109,19 +143,53 @@ const KnowledgeBlocks = () => {
       ],
     },
     {
-      title: 'Back End',
+      title: 'Google Cloud',
       topics: [
         { 
-          label: 'Node.js Basics', 
-          url: 'https://www.youtube.com/embed/example19?autoplay=0'
+          label: 'EC2 & S3 Basics', 
+          url: 'https://www.youtube.com/embed/example16?autoplay=0'
         },
         { 
-          label: 'REST APIs', 
-          url: 'https://www.youtube.com/embed/example20?autoplay=0'
+          label: 'Lambda & API Gateway', 
+          url: 'https://www.youtube.com/embed/example17?autoplay=0'
         },
         { 
-          label: 'Database Integration', 
-          url: 'https://www.youtube.com/embed/example21?autoplay=0'
+          label: 'CloudFormation & IAM', 
+          url: 'https://www.youtube.com/embed/example18?autoplay=0'
+        },
+      ],
+    },
+    {
+      title: 'Azure',
+      topics: [
+        { 
+          label: 'EC2 & S3 Basics', 
+          url: 'https://www.youtube.com/embed/example16?autoplay=0'
+        },
+        { 
+          label: 'Lambda & API Gateway', 
+          url: 'https://www.youtube.com/embed/example17?autoplay=0'
+        },
+        { 
+          label: 'CloudFormation & IAM', 
+          url: 'https://www.youtube.com/embed/example18?autoplay=0'
+        },
+      ],
+    },
+    {
+      title: 'TypeScript',
+      topics: [
+        { 
+          label: 'Variables & Data Types', 
+          url: 'https://www.youtube.com/embed/9WtkVYKLEGI?autoplay=0'
+        },
+        { 
+          label: 'Functions & Scope', 
+          url: 'https://www.youtube.com/embed/SHINoHxvTso?autoplay=0'
+        },
+        { 
+          label: 'Arrays & Objects', 
+          url: 'https://www.youtube.com/embed/1S8SBDhA7HA?autoplay=0'
         },
       ],
     },
