@@ -5,10 +5,11 @@ import { Code, Cloud, Lock, Server } from 'lucide-react';
 
 const AboutMeSection = ({ onVisible }: { onVisible?: () => void }) => {
   const features = [
-    { icon: Code, title: 'Software Development', description: 'Full-stack development.' },
-    { icon: Cloud, title: 'Cloud Architecture', description: 'Scalable infrastructure.' },
-    { icon: Lock, title: 'Blockchain', description: 'Web3 integration.' },
-    { icon: Server, title: 'DevOps', description: 'CI/CD pipelines.' },
+    { icon: Lock, title: 'Blockchain', description: 'Web3, Smart Contracts, Security.' },
+    { icon: Code, title: 'Software Development', description: 'Front-End, BacK-End, TDD, Databases.' },
+    { icon: Cloud, title: 'Cloud Architecture', description: 'AWS, GCP, Azure' },
+    
+    { icon: Server, title: 'DevOps', description: 'CI/CD, Terraform, Docker, Kubernetes.' },
   ];
 
   return (
@@ -50,18 +51,19 @@ const AboutMeSection = ({ onVisible }: { onVisible?: () => void }) => {
             className="space-y-6"
           >
             <h3 className="text-2xl font-bold bg-gradient-to-r from-turquoiseBlue to-skyBlue bg-clip-text text-transparent">
-              Software & DevOps Engineer
+            <span className="block mb-1">Software</span>
+            <span className="block">Solutions Engineer</span>
             </h3>
             <div className="space-y-4 text-gray-300 text-left mx-auto max-w-4xl">
-              <p>
-                Specializing in building robust cloud infrastructure and implementing
-                efficient CI/CD pipelines. Experienced in both frontend and backend
-                development with a strong focus on security and scalability.
-              </p>
-              <p>
-                Currently working on blockchain solutions and cloud-native
-                applications, always eager to learn and adapt to new technologies.
-              </p>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 text-center">
+  Specializing in building robust Web 3 and cloud infrastructure by implementing
+  efficient desing patterns arquitecture with continuos integrations and delivery. Experienced in both frontend and backend
+  development with a strong focus on security and scalability.
+</p>
+<p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-12 text-center">
+  Currently working on blockchain solutions and cloud-native
+  applications, always eager to learn and adapt to new technologies.
+</p>
             </div>
           </motion.div>
         </div>
