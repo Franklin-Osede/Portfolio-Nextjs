@@ -228,7 +228,7 @@ const KnowledgeBlocks = () => {
       ],
     },
     {
-      title: 'Datastructures and Algorithms',
+      title: 'Data Structures & Algorithms',
       topics: [
         { 
           label: 'Microservices vs Monolith', 
