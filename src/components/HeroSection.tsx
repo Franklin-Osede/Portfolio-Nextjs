@@ -63,7 +63,7 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
               2000,
               'Blockchain Engineer',
               2000,
-              'DevOps & Cloud Developer',
+              'DevOps & Cloud',
               2000,
             ]}
             wrapper="span"
@@ -79,7 +79,7 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
           transition={{ duration: 0.8, delay: 1 }}
           className="flex justify-center gap-2 flex-wrap mt-6"
         >
-          {['DevOps', 'AWS', 'Blockchain', 'Security'].map((tech) => {
+          {['Blockchain','Full-Stack','DevOps','Cloud','Security'].map((tech) => {
             return (
               <motion.span
                 key={tech}
@@ -103,9 +103,13 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
           className="flex justify-center space-x-6 pt-6"
         >
           {[
-            { icon: Github, href: 'https://github.com/yourusername' },
-            { icon: Linkedin, href: 'https://linkedin.com/in/yourusername' },
-            { icon: Mail, href: 'mailto:your@email.com' },
+            { icon: Github, href: 'https://github.com/Franklin-Osede?tab=repositories&type=source' },
+            { icon: Linkedin, href: 'https://www.linkedin.com/in/franklinosede' },
+            { 
+              icon: Mail, 
+              href: 'mailto:franklin.op@hotmail.com',
+              ariaLabel: 'Envíame un email'
+            },
           ].map((link, idx) => (
             <a
               key={idx}

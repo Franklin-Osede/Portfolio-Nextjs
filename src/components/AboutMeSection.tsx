@@ -38,8 +38,7 @@ const AboutMeSection = ({ onVisible }: { onVisible?: () => void }) => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-turquoiseBlue to-skyBlue bg-clip-text text-transparent">
               About Me
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
-              Passionate about building scalable solutions and transforming ideas into reality.
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-12">            Passionate about building scalable solutions and transforming ideas into reality.
               With expertise in modern technologies and a focus on quality.
             </p>
           </motion.div>
@@ -50,7 +49,7 @@ const AboutMeSection = ({ onVisible }: { onVisible?: () => void }) => {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-bold text-turquoiseBlue">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-turquoiseBlue to-skyBlue bg-clip-text text-transparent">
               Software & DevOps Engineer
             </h3>
             <div className="space-y-4 text-gray-300 text-left mx-auto max-w-4xl">

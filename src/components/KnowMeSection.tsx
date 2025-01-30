@@ -28,7 +28,7 @@ const KnowMeSection = () => {
           <div className="mb-16 text-center">
             <h3 className="text-3xl font-bold text-white mb-10">
               <span className="bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text">
-                Get To Know Me
+                What I do
               </span>
             </h3>
             <div className="relative w-full max-w-4xl mx-auto aspect-w-16 aspect-h-9">
