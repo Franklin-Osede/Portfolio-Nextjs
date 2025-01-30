@@ -13,14 +13,17 @@ const AboutMeSection = ({ onVisible }: { onVisible?: () => void }) => {
   ];
 
   return (
-    <section id="about-me" className="min-h-screen bg-darkBlue relative overflow-hidden">
-      <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        onViewportEnter={onVisible}
-        transition={{ duration: 1 }}
-        className="absolute inset-0 bg-gradient-to-b from-darkBlue to-navyBlue opacity-50"
-      />
+    <section id="about-me" className="min-h-screen bg-[#0a1a2f] relative overflow-hidden">
+    <motion.div
+  initial={{ y: 50, opacity: 0 }}
+  whileInView={{ y: 0, opacity: 1 }}
+  onViewportEnter={onVisible}
+  transition={{ duration: 1 }}
+  className="absolute inset-0"
+  style={{
+    background: 'linear-gradient(270deg, rgba(10, 26, 47, 0.9), rgba(15, 42, 74, 0.9), rgba(10, 26, 47, 0.9))'
+  }}
+/>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -75,7 +78,15 @@ const AboutMeSection = ({ onVisible }: { onVisible?: () => void }) => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="p-6 bg-navyBlue rounded-lg border border-turquoiseBlue/20 text-center"
+              style={{
+                background: 'linear-gradient(270deg, rgba(10, 26, 47, 0.7), rgba(15, 42, 74, 0.8), rgba(10, 26, 47, 0.7))',
+                boxShadow: '0 8px 25px rgba(0, 0, 0, 0.6)',
+                border: '1px solid transparent',
+                backgroundClip: 'padding-box',
+                WebkitBackgroundClip: 'padding-box',
+                transition: 'transform 0.2s, box-shadow 0.2s',
+              }}
+              className="p-6 backdrop-blur-sm rounded-lg text-center relative hover:transform hover:scale-[1.02] hover:shadow-xl before:absolute before:inset-0 before:-z-10 before:rounded-lg before:p-[1px] before:bg-gradient-to-r before:from-turquoiseBlue/40 before:to-skyBlue/40"
             >
               <feature.icon className="w-8 h-8 mb-4 text-turquoiseBlue mx-auto" />
               <h4 className="text-lg font-semibold text-white">{feature.title}</h4>
