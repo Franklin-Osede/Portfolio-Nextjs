@@ -187,11 +187,16 @@ const KnowledgeBlocks = () => {
           50% { transform: scale(1.05); }
           100% { transform: scale(1); }
         }
+
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-5px); }
+        }
       `}</style>
       <div className="container mx-auto max-w-5xl pt-4">
         <h2 className="text-3xl font-bold text-center mb-10">
           <span className="bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text">
-            Watch content below
+            Tech Explained <span className="inline-block animate-bounce">↓</span>
           </span>
         </h2>
         <div className="space-y-6">
