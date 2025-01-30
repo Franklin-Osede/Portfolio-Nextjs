@@ -7,6 +7,125 @@ const KnowledgeBlocks = () => {
 
   const blocks = [
     {
+      title: 'Coding Katas',
+      topics: [
+        { 
+          label: 'Basic Katas', 
+          url: 'https://www.youtube.com/embed/example1?autoplay=0'
+        },
+        { 
+          label: 'Intermediate Katas', 
+          url: 'https://www.youtube.com/embed/example2?autoplay=0'
+        },
+        { 
+          label: 'Advanced Katas', 
+          url: 'https://www.youtube.com/embed/example3?autoplay=0'
+        },
+      ],
+    },
+    {
+      title: 'DevOps',
+      topics: [
+        { 
+          label: 'CI/CD Pipelines', 
+          url: 'https://www.youtube.com/embed/example4?autoplay=0'
+        },
+        { 
+          label: 'Docker & Kubernetes', 
+          url: 'https://www.youtube.com/embed/example5?autoplay=0'
+        },
+        { 
+          label: 'Infrastructure as Code', 
+          url: 'https://www.youtube.com/embed/example6?autoplay=0'
+        },
+      ],
+    },
+    {
+      title: 'Solidity',
+      topics: [
+        { 
+          label: 'Smart Contract Basics', 
+          url: 'https://www.youtube.com/embed/example7?autoplay=0'
+        },
+        { 
+          label: 'Deploying Contracts', 
+          url: 'https://www.youtube.com/embed/example8?autoplay=0'
+        },
+        { 
+          label: 'Advanced Solidity', 
+          url: 'https://www.youtube.com/embed/example9?autoplay=0'
+        },
+      ],
+    },
+    {
+      title: 'Rust',
+      topics: [
+        { 
+          label: 'Getting Started with Rust', 
+          url: 'https://www.youtube.com/embed/example10?autoplay=0'
+        },
+        { 
+          label: 'Ownership & Borrowing', 
+          url: 'https://www.youtube.com/embed/example11?autoplay=0'
+        },
+        { 
+          label: 'Concurrency in Rust', 
+          url: 'https://www.youtube.com/embed/example12?autoplay=0'
+        },
+      ],
+    },
+    {
+      title: 'Smart Contract Hacking',
+      topics: [
+        { 
+          label: 'Introduction to Smart Contract Security', 
+          url: 'https://www.youtube.com/embed/example13?autoplay=0'
+        },
+        { 
+          label: 'Common Vulnerabilities', 
+          url: 'https://www.youtube.com/embed/example14?autoplay=0'
+        },
+        { 
+          label: 'Exploiting Smart Contracts', 
+          url: 'https://www.youtube.com/embed/example15?autoplay=0'
+        },
+      ],
+    },
+    {
+      title: 'AWS',
+      topics: [
+        { 
+          label: 'EC2 & S3 Basics', 
+          url: 'https://www.youtube.com/embed/example16?autoplay=0'
+        },
+        { 
+          label: 'Lambda & API Gateway', 
+          url: 'https://www.youtube.com/embed/example17?autoplay=0'
+        },
+        { 
+          label: 'CloudFormation & IAM', 
+          url: 'https://www.youtube.com/embed/example18?autoplay=0'
+        },
+      ],
+    },
+    {
+      title: 'Back End',
+      topics: [
+        { 
+          label: 'Node.js Basics', 
+          url: 'https://www.youtube.com/embed/example19?autoplay=0'
+        },
+        { 
+          label: 'REST APIs', 
+          url: 'https://www.youtube.com/embed/example20?autoplay=0'
+        },
+        { 
+          label: 'Database Integration', 
+          url: 'https://www.youtube.com/embed/example21?autoplay=0'
+        },
+      ],
+    },
+    {
       title: 'JavaScript',
       topics: [
         { 
@@ -21,9 +140,22 @@ const KnowledgeBlocks = () => {
           label: 'Arrays & Objects', 
           url: 'https://www.youtube.com/embed/1S8SBDhA7HA?autoplay=0'
         },
+      ],
+    },
+    {
+      title: 'Design Architecture',
+      topics: [
         { 
-          label: 'DOM Manipulation', 
-          url: 'https://www.youtube.com/embed/5fb2aPlgoys?autoplay=0'
+          label: 'Microservices vs Monolith', 
+          url: 'https://www.youtube.com/embed/example22?autoplay=0'
+        },
+        { 
+          label: 'Event-Driven Architecture', 
+          url: 'https://www.youtube.com/embed/example23?autoplay=0'
+        },
+        { 
+          label: 'Scalability Patterns', 
+          url: 'https://www.youtube.com/embed/example24?autoplay=0'
         },
       ],
     },
@@ -36,7 +168,7 @@ const KnowledgeBlocks = () => {
   return (
     <section
       id="knowledge"
-      className="min-h-screen relative overflow-hidden py-10 px-4"
+      className="relative overflow-hidden py-10 px-4"
       style={{
         background: 'linear-gradient(270deg, rgba(10, 26, 47, 0.98), rgba(15, 42, 74, 0.92), rgba(10, 26, 47, 0.98))',
         backgroundSize: '600% 600%',
@@ -59,7 +191,7 @@ const KnowledgeBlocks = () => {
       <div className="container mx-auto max-w-5xl pt-4">
         <h2 className="text-3xl font-bold text-center mb-10">
           <span className="bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text">
-            JavaScript
+            Watch content below
           </span>
         </h2>
         <div className="space-y-6">
@@ -77,7 +209,7 @@ const KnowledgeBlocks = () => {
               >
                 <div className="flex items-center justify-between">
                   <span className="text-white text-xl group-hover:text-turquoiseBlue transition-colors">
-                    Videos Javascipt
+                    {block.title}
                   </span>
                   {openIndex === null && (
                     <span className="text-white text-sm opacity-80">
