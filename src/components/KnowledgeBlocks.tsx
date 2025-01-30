@@ -227,6 +227,23 @@ const KnowledgeBlocks = () => {
         },
       ],
     },
+    {
+      title: 'Datastructures and Algorithms',
+      topics: [
+        { 
+          label: 'Microservices vs Monolith', 
+          url: 'https://www.youtube.com/embed/example22?autoplay=0'
+        },
+        { 
+          label: 'Event-Driven Architecture', 
+          url: 'https://www.youtube.com/embed/example23?autoplay=0'
+        },
+        { 
+          label: 'Scalability Patterns', 
+          url: 'https://www.youtube.com/embed/example24?autoplay=0'
+        },
+      ],
+    },
   ];
 
   const handleTopicClick = (idx: number) => {
