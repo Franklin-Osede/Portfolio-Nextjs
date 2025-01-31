@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Parallax } from 'react-parallax';
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { TypeAnimation } from 'react-type-animation';
 
 const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
@@ -105,7 +105,6 @@ const HeroSection = ({ onVisible }: { onVisible: () => void }) => {
           {[
             { icon: Github, href: 'https://github.com/Franklin-Osede?tab=repositories&type=source' },
             { icon: Linkedin, href: 'https://www.linkedin.com/in/franklinosede' },
-            { icon: Twitter, href: 'https://www.linkedin.com/in/franklinosede' },
             { 
               icon: Mail, 
               href: 'mailto:franklin.op@hotmail.com',
