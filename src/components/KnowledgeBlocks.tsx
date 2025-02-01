@@ -10,7 +10,7 @@ const KnowledgeBlocks = () => {
       title: 'Coding Katas',
       topics: [
         { 
-          label: 'Basic Katas', 
+          label: '', 
           url: 'https://www.youtube.com/embed/example1?autoplay=0'
         },
         { 
@@ -19,7 +19,11 @@ const KnowledgeBlocks = () => {
         },
         { 
           label: 'Advanced Katas', 
-          url: 'https://www.youtube.com/embed/example3?autoplay=0'
+          url: 'https://www.youtube.com/watch?v=liBfm5z8KFc'
+        },
+        { 
+          label: 'Circular Array Loop', 
+          url: 'https://www.youtube.com/embed/liBfm5z8KFc'
         },
       ],
     },
