@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 const BlogSection = () => {
-  const [selectedPost, setSelectedPost] = useState<string | null>(null);
+  const [selectedPost, setSelectedPost] = useState<number | null>(null);
 
   const posts = [
     {
@@ -17,6 +17,11 @@ const BlogSection = () => {
       embedUrl: "https://medium.com/embed/@yourprofile/article2"  // URL para embeber
     }
   ];
+
+  // Función separada con lógica clara
+  const handlePostClick = (clickedIndex: number) => {
+    setSelectedPost(selectedPost === clickedIndex ? null : clickedIndex);
+  };
 
   return (
     <section id="blog" className="min-h-screen bg-[#0a1a2f] relative overflow-hidden">
@@ -39,7 +44,7 @@ const BlogSection = () => {
             {posts.map((post, index) => (
               <motion.div
                 key={index}
-                onClick={() => setSelectedPost(selectedPost === post.embedUrl ? null : post.embedUrl)}
+                onClick={() => handlePostClick(index)}
                 className="p-6 rounded-lg border-2 border-turquoiseBlue/30 hover:border-turquoiseBlue/60 transition-all cursor-pointer"
                 style={{
                   background: 'linear-gradient(270deg, rgba(10, 26, 47, 0.7), rgba(15, 42, 74, 0.8), rgba(10, 26, 47, 0.7))'
@@ -50,7 +55,7 @@ const BlogSection = () => {
                 </h3>
                 <p className="text-gray-300">{post.description}</p>
                 
-                {selectedPost === post.embedUrl && (
+                {selectedPost === index && (
                   <motion.div 
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
