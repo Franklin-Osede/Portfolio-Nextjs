@@ -18,8 +18,8 @@ const KnowledgeBlocks = () => {
           url: 'https://www.youtube.com/embed/example2?autoplay=0'
         },
         { 
-          label: 'Advanced Katas', 
-          url: 'https://www.youtube.com/watch?v=liBfm5z8KFc'
+          label: 'Dynamic Programming', 
+          url: 'https://youtube.com/embed/DwSii91VxQQ'
         },
         { 
           label: 'Circular Array Loop', 
