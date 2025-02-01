@@ -5,12 +5,19 @@ const KnowledgeBlocks = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
 
+    // Define which blocks should be visible
+    const visibleBlocks = [
+      'Coding Katas',
+      'DevOps',
+    
+    ];
+
   const blocks = [
     {
       title: 'Coding Katas',
       topics: [
         { 
-          label: '', 
+          label: 'kk', 
           url: 'https://www.youtube.com/embed/example1?autoplay=0'
         },
         { 
@@ -24,6 +31,23 @@ const KnowledgeBlocks = () => {
         { 
           label: 'Circular Array Loop', 
           url: 'https://www.youtube.com/embed/liBfm5z8KFc'
+        },
+      ],
+    },
+    {
+      title: 'DevOps',
+      topics: [
+        { 
+          label: 'CI/CD Pipelines', 
+          url: 'https://www.youtube.com/embed/example4?autoplay=0'
+        },
+        { 
+          label: 'Docker & Kubernetes', 
+          url: 'https://www.youtube.com/embed/example5?autoplay=0'
+        },
+        { 
+          label: 'Infrastructure as Code', 
+          url: 'https://www.youtube.com/embed/example6?autoplay=0'
         },
       ],
     },
@@ -109,23 +133,6 @@ const KnowledgeBlocks = () => {
         { 
           label: 'Database Integration', 
           url: 'https://www.youtube.com/embed/example21?autoplay=0'
-        },
-      ],
-    },
-    {
-      title: 'DevOps',
-      topics: [
-        { 
-          label: 'CI/CD Pipelines', 
-          url: 'https://www.youtube.com/embed/example4?autoplay=0'
-        },
-        { 
-          label: 'Docker & Kubernetes', 
-          url: 'https://www.youtube.com/embed/example5?autoplay=0'
-        },
-        { 
-          label: 'Infrastructure as Code', 
-          url: 'https://www.youtube.com/embed/example6?autoplay=0'
         },
       ],
     },
@@ -254,6 +261,9 @@ const KnowledgeBlocks = () => {
     setSelectedVideo(selectedVideo === idx ? null : idx);
   };
 
+  // Filtrar los bloques basados en visibleBlocks
+  const filteredBlocks = blocks.filter(block => visibleBlocks.includes(block.title));
+
   return (
     <section
       id="knowledge"
@@ -289,7 +299,7 @@ const KnowledgeBlocks = () => {
           </span>
         </h2>
         <div className="space-y-6">
-          {blocks.map((block, index) => (
+          {filteredBlocks.map((block, index) => (
             <div
               key={block.title}
               className="bg-darkBlue bg-opacity-30 backdrop-blur-sm p-6 rounded-lg border border-turquoiseBlue/20"
