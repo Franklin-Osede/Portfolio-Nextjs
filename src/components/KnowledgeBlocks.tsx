@@ -21,8 +21,8 @@ const KnowledgeBlocks = () => {
           url: 'https://www.youtube.com/embed/example1?autoplay=0'
         },
         { 
-          label: 'Intermediate Katas', 
-          url: 'https://www.youtube.com/embed/example2?autoplay=0'
+          label: 'String Manipulation', 
+          url: 'https://youtube.com/embed/yAZ57WN_jUA'
         },
         { 
           label: 'Dynamic Programming', 
