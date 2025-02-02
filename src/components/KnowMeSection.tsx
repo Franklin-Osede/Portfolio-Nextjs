@@ -33,7 +33,7 @@ const KnowMeSection = () => {
             </h3>
             <div className="relative w-full max-w-4xl mx-auto aspect-w-16 aspect-h-9">
               <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                src="https://youtube.com/embed/qHGsRkVvnsU"
                 title="YouTube video"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
