@@ -17,10 +17,6 @@ const KnowledgeBlocks = () => {
       title: 'Coding Katas',
       topics: [
         { 
-          label: 'kk', 
-          url: 'https://www.youtube.com/embed/example1?autoplay=0'
-        },
-        { 
           label: 'String Manipulation', 
           url: 'https://youtube.com/embed/yAZ57WN_jUA'
         },
