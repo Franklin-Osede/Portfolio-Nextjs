@@ -1,26 +1,22 @@
 'use client';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 
 const BlogSection = () => {
-  const [selectedPost, setSelectedPost] = useState<number | null>(null);
-
   const posts = [
     {
-      title: "Building Secure Smart Contracts",
-      description: "A deep dive into security best practices for Web3 development",
-      embedUrl: "https://medium.com/embed/@yourprofile/article1"  // URL para embeber
+      title: "From Server Rooms to the Cloud: The Evolution of Application Deployment",
+      description: "A journey through the transformation of software deployment, from physical servers to modern container orchestration",
+      url: "https://medium.com/@franksoftwaredevelop/from-server-rooms-to-the-cloud-the-evolution-of-application-deployment-6ba096cf7478"
     },
     {
-      title: "Cloud-Native Architecture",
-      description: "Modern patterns for scalable cloud infrastructure",
-      embedUrl: "https://medium.com/embed/@yourprofile/article2"  // URL para embeber
+      title: "Code Kata Challenges: Are We Really Becoming Better Developers?",
+      description: "An analysis of whether code kata challenges truly improve developers' skills or just reinforce patterns.",
+      url: "https://medium.com/@franksoftwaredevelop/code-kata-challenges-are-we-really-becoming-better-developers-95bf86f4ae03"
     }
   ];
 
-  // Función separada con lógica clara
   const handlePostClick = (clickedIndex: number) => {
-    setSelectedPost(selectedPost === clickedIndex ? null : clickedIndex);
+    window.open(posts[clickedIndex].url, '_blank');
   };
 
   return (
@@ -54,21 +50,6 @@ const BlogSection = () => {
                   {post.title}
                 </h3>
                 <p className="text-gray-300">{post.description}</p>
-                
-                {selectedPost === index && (
-                  <motion.div 
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="mt-4"
-                  >
-                    <iframe
-                      src={post.embedUrl}
-                      className="w-full h-[400px] rounded-lg border border-turquoiseBlue/30"
-                      frameBorder="0"
-                    />
-                  </motion.div>
-                )}
               </motion.div>
             ))}
           </div>

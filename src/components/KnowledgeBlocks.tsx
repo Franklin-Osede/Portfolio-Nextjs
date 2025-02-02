@@ -34,16 +34,8 @@ const KnowledgeBlocks = () => {
       title: 'DevOps',
       topics: [
         { 
-          label: 'CI/CD Pipelines', 
-          url: 'https://www.youtube.com/embed/example4?autoplay=0'
-        },
-        { 
-          label: 'Docker & Kubernetes', 
-          url: 'https://www.youtube.com/embed/example5?autoplay=0'
-        },
-        { 
-          label: 'Infrastructure as Code', 
-          url: 'https://www.youtube.com/embed/example6?autoplay=0'
+          label: 'Understanding Kubernetes | A Modern Container Orchestrator',
+          url: 'https://youtube.com/embed/BUAqMrxmnk0'
         },
       ],
     },
