@@ -34,7 +34,7 @@ const KnowledgeBlocks = () => {
       title: 'DevOps',
       topics: [
         { 
-          label: 'Understanding Kubernetes | A Modern Container Orchestrator',
+          label: 'Understanding Kubernetes',
           url: 'https://youtube.com/embed/BUAqMrxmnk0'
         },
       ],
