@@ -8,7 +8,9 @@ const KnowledgeBlocks = () => {
     // Define which blocks should be visible
     const visibleBlocks = [
       'Coding Katas',
+      'JavaScript',
       'DevOps',
+
     
     ];
 
@@ -196,16 +198,8 @@ const KnowledgeBlocks = () => {
       title: 'JavaScript',
       topics: [
         { 
-          label: 'Variables & Data Types', 
-          url: 'https://www.youtube.com/embed/9WtkVYKLEGI?autoplay=0'
-        },
-        { 
-          label: 'Functions & Scope', 
-          url: 'https://www.youtube.com/embed/SHINoHxvTso?autoplay=0'
-        },
-        { 
-          label: 'Arrays & Objects', 
-          url: 'https://www.youtube.com/embed/1S8SBDhA7HA?autoplay=0'
+          label: 'History and Hoisting', 
+          url: 'https://youtube.com/embed/B6pb0oaBSng'
         },
       ],
     },
