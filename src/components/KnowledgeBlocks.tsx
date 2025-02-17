@@ -201,6 +201,10 @@ const KnowledgeBlocks = () => {
           label: 'History and Hoisting', 
           url: 'https://youtube.com/embed/B6pb0oaBSng'
         },
+        { 
+          label: 'Functional Programming', 
+          url: 'https://youtube.com/embed/EX9zCzJXo5s'
+        },
       ],
     },
     {
