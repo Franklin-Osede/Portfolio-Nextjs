@@ -10,8 +10,8 @@ const KnowledgeBlocks = () => {
       'Coding Katas',
       'JavaScript',
       'DevOps',
+      'Databases',
 
-    
     ];
 
   const blocks = [
@@ -38,6 +38,15 @@ const KnowledgeBlocks = () => {
         { 
           label: 'Understanding Kubernetes',
           url: 'https://youtube.com/embed/BUAqMrxmnk0'
+        },
+      ],
+    },
+    {
+      title: 'Databases',
+      topics: [
+        { 
+          label: 'Inside Database Architecture',
+          url: 'https://youtube.com/embed/fqjJN6Z8P8o'
         },
       ],
     },
