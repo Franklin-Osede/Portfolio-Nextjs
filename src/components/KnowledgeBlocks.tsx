@@ -8,10 +8,11 @@ const KnowledgeBlocks = () => {
     // Define which blocks should be visible
     const visibleBlocks = [
       'Coding Katas',
-      'JavaScript',
-      'DevOps',
       'Databases',
-
+      'Design Architecture',
+      'DevOps',
+      'Java & Spring Boot',
+      'DeFi & Blockchain',
     ];
 
   const blocks = [
@@ -38,6 +39,10 @@ const KnowledgeBlocks = () => {
         { 
           label: 'Understanding Kubernetes',
           url: 'https://youtube.com/embed/BUAqMrxmnk0'
+        },
+        { 
+          label: 'Git Workflow Explained: Workspace, Staging Area, Local vs Remote Repos',
+          url: 'https://youtube.com/embed/AK8Gp9FNVVA'
         },
       ],
     },
@@ -81,6 +86,15 @@ const KnowledgeBlocks = () => {
         { 
           label: 'Advanced Solidity', 
           url: 'https://www.youtube.com/embed/example9?autoplay=0'
+        },
+      ],
+    },
+    {
+      title: 'DeFi & Blockchain',
+      topics: [
+        { 
+          label: 'How I Built a DIY DeFi Liquidity Pool — Swaps, Dynamic Fees & Hacker‑Style Tests', 
+          url: 'https://youtube.com/embed/D6zoP1Fw7LQ'
         },
       ],
     },
@@ -132,6 +146,15 @@ const KnowledgeBlocks = () => {
         { 
           label: 'Database Integration', 
           url: 'https://www.youtube.com/embed/example21?autoplay=0'
+        },
+      ],
+    },
+    {
+      title: 'Java & Spring Boot',
+      topics: [
+        { 
+          label: 'Spring Boot Framework Ecosystem', 
+          url: 'https://youtube.com/embed/ahvR5fVtHic'
         },
       ],
     },
@@ -220,16 +243,8 @@ const KnowledgeBlocks = () => {
       title: 'Design Architecture',
       topics: [
         { 
-          label: 'Microservices vs Monolith', 
-          url: 'https://www.youtube.com/embed/example22?autoplay=0'
-        },
-        { 
-          label: 'Event-Driven Architecture', 
-          url: 'https://www.youtube.com/embed/example23?autoplay=0'
-        },
-        { 
-          label: 'Scalability Patterns', 
-          url: 'https://www.youtube.com/embed/example24?autoplay=0'
+          label: 'Domain-Driven Design Demystified: Strategic & Tactical Patterns Made Simple', 
+          url: 'https://youtube.com/embed/oCWDsAr5a9U'
         },
       ],
     },
@@ -256,8 +271,10 @@ const KnowledgeBlocks = () => {
     setSelectedVideo(selectedVideo === idx ? null : idx);
   };
 
-  // Filtrar los bloques basados en visibleBlocks
-  const filteredBlocks = blocks.filter(block => visibleBlocks.includes(block.title));
+  // Filtrar los bloques basados en visibleBlocks y mantener el orden
+  const filteredBlocks = visibleBlocks
+    .map(title => blocks.find(block => block.title === title))
+    .filter((block): block is typeof blocks[0] => block !== undefined);
 
   return (
     <section
@@ -294,7 +311,7 @@ const KnowledgeBlocks = () => {
           </span>
         </h2>
         <div className="space-y-6">
-          {filteredBlocks.map((block, index) => (
+          {filteredBlocks.map((block, blockIndex) => (
             <div
               key={block.title}
               className="bg-darkBlue bg-opacity-30 backdrop-blur-sm p-6 rounded-lg border border-turquoiseBlue/20"
@@ -304,7 +321,7 @@ const KnowledgeBlocks = () => {
             >
               <button
                 className={`w-full text-left group relative ${openIndex === null ? 'animate-[pulseAnimation_2s_ease-in-out_infinite]' : ''}`}
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                onClick={() => setOpenIndex(openIndex === blockIndex ? null : blockIndex)}
               >
                 <div className="flex items-center justify-between">
                   <span className="text-white text-xl group-hover:text-turquoiseBlue transition-colors">
@@ -317,7 +334,7 @@ const KnowledgeBlocks = () => {
                   )}
                 </div>
               </button>
-              {openIndex === index && (
+              {openIndex === blockIndex && (
                 <motion.div
                   initial={{ height: 0 }}
                   animate={{ height: 'auto' }}
