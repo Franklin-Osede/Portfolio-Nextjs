@@ -1,8 +1,12 @@
 # Franklin Osede – Professional Personal Portfolio
 
-Modern and dynamic web portfolio built with Next.js 15, React 18, and TypeScript. Features an elegant design with smooth animations, multimedia content integration, and an optimized user experience.
+> **Modern and dynamic web portfolio** built with Next.js 15, React 18, and TypeScript. Features an elegant design with smooth animations, multimedia content integration, and an optimized user experience.
 
-**Next.js** **TypeScript** **React** **TailwindCSS** **Framer Motion** **Three.js**
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=flat&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 
 ---
 
@@ -13,12 +17,13 @@ Modern and dynamic web portfolio built with Next.js 15, React 18, and TypeScript
 - [Architecture](#architecture)
 - [Technology Stack](#technology-stack)
 - [Project Structure](#project-structure)
-- [Installation](#installation)
+- [Getting Started](#getting-started)
 - [Development](#development)
 - [Deployment](#deployment)
 - [Customization](#customization)
 - [Performance](#performance)
-- [Documentation](#documentation)
+- [Testing](#testing)
+- [Roadmap](#roadmap)
 - [License](#license)
 
 ---
@@ -44,48 +49,48 @@ This personal portfolio is a modern web application designed to showcase profess
 
 ### Portfolio Sections
 
-1. **Hero Section**
-   - Text animation with TypeAnimation
-   - Parallax effect with background image
-   - Social media links (GitHub, LinkedIn, Email)
-   - Technology badges (Blockchain, Full-Stack, DevOps, Cloud, Security)
-   - Animated scroll button
+**Hero Section**
+- Text animation with TypeAnimation
+- Parallax effect with background image
+- Social media links (GitHub, LinkedIn, Email)
+- Technology badges (Blockchain, Full-Stack, DevOps, Cloud, Security)
+- Animated scroll button
 
-2. **Know Me Section**
-   - Embedded YouTube presentation video
-   - Smooth transitions between sections
-   - Centered and responsive design
+**Know Me Section**
+- Embedded YouTube presentation video
+- Smooth transitions between sections
+- Centered and responsive design
 
-3. **Knowledge Blocks**
-   - Expandable blocks with educational content
-   - Embedded YouTube videos organized by categories:
-     - Coding Katas
-     - DevOps
-     - Databases
-     - Design Architecture
-     - Java & Spring Boot
-     - DeFi & Blockchain
-   - Interactive interface with animations
+**Knowledge Blocks**
+- Expandable blocks with educational content
+- Embedded YouTube videos organized by categories:
+  - Coding Katas
+  - DevOps
+  - Databases
+  - Design Architecture
+  - Java & Spring Boot
+  - DeFi & Blockchain
+- Interactive interface with animations
 
-4. **About Me Section**
-   - Professional description
-   - Specialty cards with icons:
-     - Blockchain (Web3, Smart Contracts, Security)
-     - Software Development (Front-End, Back-End, TDD, Databases)
-     - Cloud Architecture (AWS, GCP, Azure)
-     - DevOps (CI/CD, Terraform, Docker, Kubernetes)
-   - Hover effects and animations
+**About Me Section**
+- Professional description
+- Specialty cards with icons:
+  - Blockchain (Web3, Smart Contracts, Security)
+  - Software Development (Front-End, Back-End, TDD, Databases)
+  - Cloud Architecture (AWS, GCP, Azure)
+  - DevOps (CI/CD, Terraform, Docker, Kubernetes)
+- Hover effects and animations
 
-5. **Blog Section**
-   - Links to articles published on Medium
-   - Interactive cards with hover effects
-   - Responsive grid design
+**Blog Section**
+- Links to articles published on Medium
+- Interactive cards with hover effects
+- Responsive grid design
 
 ---
 
 ## Architecture
 
-### High-Level Architecture
+### High-Level Architecture Diagram
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -174,33 +179,33 @@ Portfolio-Nextjs/
 │   │   ├── HeroSection.tsx       # Hero section with parallax
 │   │   ├── KnowMeSection.tsx     # Presentation section
 │   │   ├── KnowledgeBlocks.tsx   # Knowledge blocks
-│   │   ├── AboutMeSection.tsx    # About me section
-│   │   ├── BlogSection.tsx       # Blog section
-│   │   └── ClientOnly.tsx        # Wrapper for client components
+│   │   ├── AboutMeSection.tsx     # About me section
+│   │   ├── BlogSection.tsx        # Blog section
+│   │   └── ClientOnly.tsx         # Wrapper for client components
 │   │
-│   └── types/                    # TypeScript definitions
-│       ├── react-parallax.d.ts   # Types for react-parallax
-│       └── tailwind-plugins.d.ts # Types for Tailwind plugins
+│   └── types/                     # TypeScript definitions
+│       ├── react-parallax.d.ts    # Types for react-parallax
+│       └── tailwind-plugins.d.ts  # Types for Tailwind plugins
 │
 ├── public/                        # Static files
-│   └── favicon.png               # Site favicon
+│   └── favicon.png                # Site favicon
 │
 ├── .github/                       # GitHub configuration (optional)
-│   └── workflows/                # GitHub Actions workflows
+│   └── workflows/                 # GitHub Actions workflows
 │
-├── next.config.ts                # Next.js configuration
-├── tailwind.config.ts            # TailwindCSS configuration
-├── tsconfig.json                 # TypeScript configuration
-├── eslint.config.mjs             # ESLint configuration
-├── postcss.config.js             # PostCSS configuration
-├── vercel.json                   # Vercel configuration
-├── package.json                  # Dependencies and scripts
-└── README.md                     # This file
+├── next.config.ts                 # Next.js configuration
+├── tailwind.config.ts             # TailwindCSS configuration
+├── tsconfig.json                  # TypeScript configuration
+├── eslint.config.mjs              # ESLint configuration
+├── postcss.config.js              # PostCSS configuration
+├── vercel.json                    # Vercel configuration
+├── package.json                   # Dependencies and scripts
+└── README.md                      # This file
 ```
 
 ---
 
-## Installation
+## Getting Started
 
 ### Prerequisites
 
@@ -208,7 +213,7 @@ Portfolio-Nextjs/
 - **npm**: v9.0.0 or higher (or yarn/pnpm)
 - **Git**: To clone the repository
 
-### Installation Steps
+### Installation
 
 1. **Clone the repository**
 
@@ -415,24 +420,6 @@ The `vercel.json` file contains the configuration:
 
 ---
 
-## Documentation
-
-### Additional Resources
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [React Documentation](https://react.dev)
-- [TailwindCSS Documentation](https://tailwindcss.com/docs)
-- [Framer Motion Documentation](https://www.framer.com/motion)
-- [TypeScript Documentation](https://www.typescriptlang.org/docs)
-
-### Development Guides
-
-- **Add a new section**: See [Customization](#customization) section
-- **Modify animations**: Consult Framer Motion documentation
-- **Change colors**: Edit `tailwind.config.ts`
-
----
-
 ## Testing
 
 ### Testing Strategy
@@ -462,29 +449,29 @@ npm run test:coverage
 
 ### Completed
 
-- Portfolio with modern design
-- YouTube video integration
-- Animations with Framer Motion
-- Parallax effects
-- Responsive design
-- Vercel deployment
-- SEO optimization
-- Complete TypeScript
+- [x] Portfolio with modern design
+- [x] YouTube video integration
+- [x] Animations with Framer Motion
+- [x] Parallax effects
+- [x] Responsive design
+- [x] Vercel deployment
+- [x] SEO optimization
+- [x] Complete TypeScript
 
 ### In Progress
 
-- Test implementation
-- Image optimization
-- Analytics integration
+- [ ] Test implementation
+- [ ] Image optimization
+- [ ] Analytics integration
 
 ### Planned
 
-- Light/dark mode toggle
-- Internationalization (i18n)
-- Blog with MDX
-- Project portfolio with filters
-- Functional contact form
-- Headless CMS integration
+- [ ] Light/dark mode toggle
+- [ ] Internationalization (i18n)
+- [ ] Blog with MDX
+- [ ] Project portfolio with filters
+- [ ] Functional contact form
+- [ ] Headless CMS integration
 
 ---
 
