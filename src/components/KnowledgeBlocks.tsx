@@ -31,6 +31,10 @@ const KnowledgeBlocks = () => {
           label: 'Circular Array Loop', 
           url: 'https://www.youtube.com/embed/liBfm5z8KFc'
         },
+        { 
+          label: 'Filtering, Sorting, and Transforming Data', 
+          url: 'https://youtube.com/embed/5_NWIDBFSUs'
+        },
       ],
     },
     {
@@ -343,8 +347,13 @@ const KnowledgeBlocks = () => {
                   className="mt-4 overflow-hidden"
                 >
                   <div className="space-y-4">
-                    {block.topics.map((topic, idx) => (
-                      <div key={idx}>
+                    {block.topics.map((topic, idx) => {
+                      // Debug: verificar que todos los videos se rendericen
+                      if (block.title === 'Coding Katas') {
+                        console.log(`Rendering Coding Katas video ${idx + 1}: ${topic.label}`);
+                      }
+                      return (
+                      <div key={`${block.title}-${idx}-${topic.label}`}>
                         <div 
                           className="text-white hover:text-turquoiseBlue transition-colors p-2 cursor-pointer flex items-center justify-between"
                           onClick={() => handleTopicClick(idx)}
@@ -371,7 +380,8 @@ const KnowledgeBlocks = () => {
                           </motion.div>
                         )}
                       </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </motion.div>
               )}
