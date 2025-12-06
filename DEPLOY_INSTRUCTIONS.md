@@ -28,3 +28,4 @@ Si ya tienes el dominio https://www.franklin-osede-prieto.com/ configurado en Ve
 
 Una vez configurado, cada push a `main` desplegará automáticamente.
 
+
